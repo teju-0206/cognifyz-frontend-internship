@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TaskSphere Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="dashboard">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <h2 class="logo">TaskSphere</h2>
+
+        <nav class="nav">
+          <a href="#" data-section="dashboard-section">Dashboard</a>
+          <a href="#" data-section="tasks-section">Tasks</a>
+          <a href="#" data-section="goals-section">Goals</a>
+          <a href="#" data-section="stats-section">Stats</a>
+          <a href="#" data-section="settings-section">Settings</a>
+        </nav>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <!-- DASHBOARD SECTION -->
+        <section id="dashboard-section">
+          <header class="header">
+            <h1>Welcome to TaskSphere</h1>
+            <p>Your personal productivity track center.</p>
+          </header>
+
+          <!-- Stats Cards -->
+          <section class="cards">
+            <div class="card">
+              <h3>Tasks Completed</h3>
+              <p class="number">12</p>
+            </div>
+
+            <div class="card">
+              <h3>Pending Tasks</h3>
+              <p class="number">5</p>
+            </div>
+
+            <div class="card">
+              <h3>Focus Hours</h3>
+              <p class="number">6.5</p>
+            </div>
+          </section>
+
+          <!-- Focus Section -->
+          <section class="focus">
+            <div class="card large">
+              <h3>Today's Focus</h3>
+              <p>
+                Complete Cognifyz internship tasks and improve frontend skills.
+              </p>
+            </div>
+
+            <div class="card large">
+              <h3>Preview</h3>
+              <img src="images/productivity.jpg" alt="Productivity Image" />
+            </div>
+          </section>
+        </section>
+
+        <!-- TASKS SECTION -->
+        <section id="tasks-section" class="card large">
+          <h2>Tasks Manager</h2>
+
+          <ul>
+            <li>Finish responsive dashboard</li>
+            <li>Implement sidebar navigation</li>
+            <li>Add dark mode toggle</li>
+            <li>Connect public API</li>
+          </ul>
+        </section>
+
+        <!-- GOALS SECTION -->
+        <section id="goals-section" class="card large">
+          <h2>Goals</h2>
+
+          <ul>
+            <li>Complete Cognifyz Internship</li>
+            <li>Build 3 portfolio projects</li>
+            <li>Master JavaScript</li>
+            <li>Learn React</li>
+          </ul>
+        </section>
+
+        <!-- STATS SECTION -->
+        <section id="stats-section" class="card large">
+          <h2>Productivity Stats</h2>
+
+          <p>Weekly Progress: 78%</p>
+          <p>Focus Consistency: Good</p>
+          <p>Tasks Completion Rate: High</p>
+        </section>
+
+        <!-- SETTINGS SECTION -->
+        <section id="settings-section" class="card large">
+          <h2>Settings</h2>
+
+          <p>Dark mode toggle coming soon.</p>
+          <p>User preferences will appear here.</p>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
