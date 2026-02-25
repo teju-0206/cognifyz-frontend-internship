@@ -14,21 +14,32 @@
         <h2 class="logo">TaskSphere</h2>
 
         <nav class="nav">
-          <a href="#" data-section="dashboard-section">Dashboard</a>
-          <a href="#" data-section="tasks-section">Tasks</a>
-          <a href="#" data-section="goals-section">Goals</a>
-          <a href="#" data-section="stats-section">Stats</a>
-          <a href="#" data-section="settings-section">Settings</a>
+          <a href="#" class="active" data-section="dashboard">Dashboard</a>
+
+          <a href="#" data-section="tasks">Tasks</a>
+
+          <a href="#" data-section="goals">Goals</a>
+
+          <a href="#" data-section="stats">Stats</a>
+
+          <a href="#" data-section="settings">Settings</a>
         </nav>
       </aside>
 
       <!-- Main Content -->
       <main class="main-content">
         <!-- DASHBOARD SECTION -->
-        <section id="dashboard-section">
+        <section id="dashboard" class="section active">
           <header class="header">
-            <h1>Welcome to TaskSphere</h1>
-            <p>Your personal productivity track center.</p>
+            <div>
+              <h1>Welcome to TaskSphere</h1>
+              <p>Your personal productivity tracking center.</p>
+            </div>
+
+            <div class="header-buttons">
+              <button id="darkModeToggle">🌙 Dark Mode</button>
+              <button id="colorChangeBtn">🎨 Change Background</button>
+            </div>
           </header>
 
           <!-- Stats Cards -->
@@ -53,59 +64,59 @@
           <section class="focus">
             <div class="card large">
               <h3>Today's Focus</h3>
+
               <p>
-                Complete Cognifyz internship tasks and improve frontend skills.
+                Complete Cognifyz internship tasks and strengthen frontend
+                development skills.
               </p>
             </div>
 
             <div class="card large">
               <h3>Preview</h3>
-              <img src="images/productivity.jpg" alt="Productivity Image" />
+
+              <img src="images/productivity.jpg" />
             </div>
           </section>
         </section>
 
         <!-- TASKS SECTION -->
-        <section id="tasks-section" class="card large">
-          <h2>Tasks Manager</h2>
+        <section id="tasks" class="section">
+          <h2>Tasks</h2>
 
-          <ul>
-            <li>Finish responsive dashboard</li>
-            <li>Implement sidebar navigation</li>
-            <li>Add dark mode toggle</li>
-            <li>Connect public API</li>
-          </ul>
+          <div class="card large">
+            <p>Manage and track your daily tasks efficiently.</p>
+          </div>
         </section>
 
         <!-- GOALS SECTION -->
-        <section id="goals-section" class="card large">
+        <section id="goals" class="section">
           <h2>Goals</h2>
 
-          <ul>
-            <li>Complete Cognifyz Internship</li>
-            <li>Build 3 portfolio projects</li>
-            <li>Master JavaScript</li>
-            <li>Learn React</li>
-          </ul>
+          <div class="card large">
+            <p>Define and monitor your productivity goals.</p>
+          </div>
         </section>
 
         <!-- STATS SECTION -->
-        <section id="stats-section" class="card large">
-          <h2>Productivity Stats</h2>
+        <section id="stats" class="section">
+          <h2>Statistics</h2>
 
-          <p>Weekly Progress: 78%</p>
-          <p>Focus Consistency: Good</p>
-          <p>Tasks Completion Rate: High</p>
+          <div class="card large">
+            <p>View productivity insights and analytics.</p>
+          </div>
         </section>
 
         <!-- SETTINGS SECTION -->
-        <section id="settings-section" class="card large">
+        <section id="settings" class="section">
           <h2>Settings</h2>
 
-          <p>Dark mode toggle coming soon.</p>
-          <p>User preferences will appear here.</p>
+          <div class="card large">
+            <p>Customize your TaskSphere experience.</p>
+          </div>
         </section>
       </main>
     </div>
+
+    <script src="script.js"></script>
   </body>
 </html>
