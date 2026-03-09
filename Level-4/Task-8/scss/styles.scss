@@ -1,0 +1,21 @@
+// ================================
+// styles.scss
+// TaskSphere — Main Sass Entry Point
+// ================================
+//
+// This file imports all partials in order.
+// Compile with: sass scss/styles.scss style.css
+//
+// Partial structure:
+//   _variables.scss  → design tokens (colors, fonts, spacing)
+//   _mixins.scss     → reusable mixins (flex, card, btn, input)
+//   _base.scss       → reset & body defaults
+//   _layout.scss     → wrapper, sidebar, main content
+//   _components.scss → cards, buttons, inputs, tasks, stats, API
+// ================================
+
+@use "variables" as *;
+@use "mixins" as *;
+@use "base";
+@use "layout";
+@use "components";

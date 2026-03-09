@@ -1,0 +1,95 @@
+// ================================
+// _variables.scss
+// TaskSphere Design Tokens
+// ================================
+
+// --- Colors ---
+$color-primary: #38bdf8;
+$color-primary-dark: #0ea5e9;
+$color-dark: #1e293b;
+$color-darker: #0f172a;
+$color-sidebar: #1e293b;
+$color-sidebar-hover: #334155;
+$color-body-bg: #e3e8ed;
+
+$color-white: #ffffff;
+$color-card-bg: #ffffff;
+$color-input-bg: #fafbfc;
+
+$color-text-heading: #1e293b;
+$color-text-body: #334155;
+$color-text-muted: #64748b;
+$color-text-light: #94a3b8;
+
+$color-border: #e2e8f0;
+$color-border-dark: #475569;
+
+$color-success: #34d399;
+$color-success-bg: #f0fdf4;
+$color-success-text: #059669;
+
+$color-warning: #fbbf24;
+$color-warning-bg: #fefce8;
+$color-warning-text: #92400e;
+
+$color-danger: #f87171;
+$color-danger-bg: #fee2e2;
+$color-danger-text: #b91c1c;
+
+$color-info: #38bdf8;
+$color-info-bg: #e0f2fe;
+$color-info-text: #0369a1;
+
+$color-purple: #a78bfa;
+
+// --- Dark Mode Colors ---
+$dark-body-bg: #0f172a;
+$dark-card-bg: #1e293b;
+$dark-input-bg: #334155;
+$dark-border: #475569;
+$dark-text: #e2e8f0;
+$dark-text-muted: #94a3b8;
+
+// --- Typography ---
+$font-body: "DM Sans", sans-serif;
+$font-heading: "Plus Jakarta Sans", sans-serif;
+$font-mono: "Courier New", monospace;
+
+$font-size-xs: 11px;
+$font-size-sm: 13px;
+$font-size-md: 14px;
+$font-size-lg: 16px;
+$font-size-xl: 20px;
+$font-size-2xl: 26px;
+$font-size-3xl: 32px;
+
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+$font-weight-black: 800;
+
+// --- Spacing ---
+$spacing-xs: 4px;
+$spacing-sm: 8px;
+$spacing-md: 16px;
+$spacing-lg: 20px;
+$spacing-xl: 30px;
+
+// --- Border Radius ---
+$radius-sm: 6px;
+$radius-md: 8px;
+$radius-lg: 10px;
+$radius-xl: 12px;
+$radius-full: 9999px;
+
+// --- Shadows ---
+$shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.06);
+$shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+$shadow-lg: 0 6px 20px rgba(0, 0, 0, 0.12);
+
+// --- Sidebar ---
+$sidebar-width: 240px;
+
+// --- Transitions ---
+$transition-fast: 0.2s ease;
+$transition-normal: 0.3s ease;
