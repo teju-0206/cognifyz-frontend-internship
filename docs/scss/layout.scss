@@ -1,0 +1,125 @@
+// ================================
+// _layout.scss
+// Wrapper, Sidebar, Main Content
+// ================================
+
+.wrapper {
+  @include flex(row);
+  min-height: 100vh;
+}
+
+// ---- SIDEBAR ----
+.sidebar {
+  width: $sidebar-width;
+  background-color: $color-sidebar;
+  color: $color-white;
+  padding: $spacing-lg;
+  flex-shrink: 0;
+  transition: width $transition-normal;
+
+  &-brand {
+    margin-bottom: $spacing-xl;
+  }
+
+  &-nav {
+    @include flex(column, flex-start, flex-start, 4px);
+
+    .nav-link {
+      @include flex(row, center, flex-start, 8px);
+      color: $color-white;
+      padding: 10px 12px;
+      border-radius: $radius-sm;
+      font-size: $font-size-md;
+      width: 100%;
+      transition: background-color $transition-fast;
+
+      i {
+        font-size: 15px;
+      }
+
+      &:hover {
+        background-color: $color-sidebar-hover;
+        color: $color-white;
+      }
+      &.active {
+        background-color: $color-primary;
+        color: $color-darker;
+        font-weight: $font-weight-bold;
+      }
+    }
+  }
+}
+
+.brand-text {
+  font-family: $font-heading;
+  font-size: 22px;
+  font-weight: $font-weight-black;
+  color: #dceff7;
+  letter-spacing: 0.2px;
+}
+
+// ---- MAIN CONTENT ----
+.main-content {
+  flex: 1;
+  padding: $spacing-xl;
+  overflow-x: hidden;
+}
+
+// ---- PAGE HEADER ----
+.page-header {
+  @include flex(row, center, space-between);
+  margin-bottom: $spacing-xl;
+  flex-wrap: wrap;
+  gap: $spacing-md;
+}
+
+.page-title {
+  font-family: $font-heading;
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-black;
+  color: $color-text-heading;
+  margin-bottom: 4px;
+  letter-spacing: -0.3px;
+
+  @include dark {
+    color: #f1f5f9;
+  }
+}
+
+.page-subtitle {
+  font-size: $font-size-md;
+  color: $color-text-muted;
+  margin-bottom: 0;
+
+  @include dark {
+    color: $dark-text-muted;
+  }
+}
+
+// ---- RESPONSIVE ----
+@include tablet {
+  .wrapper {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    padding: $spacing-md;
+
+    &-nav {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 6px;
+
+      .nav-link {
+        padding: 8px 10px;
+        font-size: $font-size-xs;
+        width: auto;
+      }
+    }
+  }
+
+  .main-content {
+    padding: $spacing-lg;
+  }
+}

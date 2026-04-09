@@ -1,0 +1,738 @@
+// ================================
+// _components.scss
+// Cards, Buttons, Inputs, Badges,
+// Progress, Tasks, Stats
+// ================================
+
+// ---- CARDS ----
+.ts-card {
+  @include card();
+  padding: $spacing-lg;
+
+  .card-title {
+    font-family: $font-heading;
+    font-size: 15px;
+    font-weight: $font-weight-bold;
+    color: $color-text-heading;
+    margin-bottom: 4px;
+
+    @include dark {
+      color: $dark-text;
+    }
+  }
+
+  @include dark {
+    background-color: $dark-card-bg;
+    color: $dark-text;
+  }
+}
+
+.ts-stat-card {
+  @include card();
+  padding: $spacing-lg;
+
+  &.ts-accent-card {
+    border-top: 3px solid $color-primary;
+  }
+
+  @include dark {
+    background-color: $dark-card-bg;
+    color: $dark-text;
+  }
+}
+
+.stat-label {
+  font-size: $font-size-sm;
+  color: $color-text-muted;
+  margin-bottom: 4px;
+
+  @include dark {
+    color: $dark-text-muted;
+  }
+}
+
+.stat-number {
+  font-family: $font-heading;
+  font-size: $font-size-3xl;
+  font-weight: $font-weight-black;
+  color: $color-text-heading;
+  margin-bottom: 6px;
+
+  @include dark {
+    color: #f1f5f9;
+  }
+}
+
+// Spotlight card
+.ts-spotlight-card {
+  border-radius: $radius-xl;
+  background: linear-gradient(135deg, $color-dark 0%, #0f4c75 100%);
+  color: $color-white;
+  padding: $spacing-lg;
+  border: none;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '"';
+    position: absolute;
+    top: -20px;
+    left: 20px;
+    font-size: 120px;
+    color: rgba($color-primary, 0.1);
+    font-family: $font-heading;
+    line-height: 1;
+  }
+
+  .spotlight-label {
+    font-size: $font-size-xs;
+    font-weight: $font-weight-bold;
+    color: $color-primary;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 12px;
+  }
+
+  .spotlight-quote {
+    font-size: $font-size-xl;
+    font-style: italic;
+    line-height: 1.6;
+    color: #f1f5f9;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .spotlight-author {
+    font-size: $font-size-md;
+    color: $color-primary;
+    font-weight: $font-weight-bold;
+    margin: 0;
+  }
+}
+
+// Tips card
+.ts-tips-card {
+  @include card($bg: #fefce8);
+  padding: $spacing-lg;
+
+  @include dark {
+    background: #1e2d1a;
+  }
+
+  .tips-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: $spacing-sm;
+
+    li {
+      font-size: $font-size-sm;
+      color: #78350f;
+      padding-left: 16px;
+      position: relative;
+      line-height: 1.5;
+
+      &::before {
+        content: "→";
+        position: absolute;
+        left: 0;
+        color: #f59e0b;
+      }
+
+      @include dark {
+        color: #fde68a;
+      }
+    }
+  }
+}
+
+// ---- BUTTONS ----
+.btn-ts {
+  @include btn-base($color-primary, $color-darker, $color-primary-dark);
+}
+.btn-ts-dark {
+  @include btn-base($color-dark, $color-white, $color-sidebar-hover);
+}
+
+.btn-secondary-ts {
+  @include btn-base(#f1f5f9, #475569, #e2e8f0);
+}
+
+.btn-danger-ts {
+  @include btn-base($color-danger-bg, $color-danger-text, #fca5a5);
+}
+
+.btn-complete {
+  background: $color-info-bg;
+  color: $color-info-text;
+  border: none;
+  border-radius: $radius-sm;
+  font-size: $font-size-xs;
+  padding: 3px 8px;
+  cursor: pointer;
+  transition: background-color $transition-fast;
+
+  &:hover {
+    background-color: $color-primary;
+    color: $color-white;
+  }
+
+  @include dark {
+    background-color: $dark-input-bg;
+    color: #7dd3fc;
+  }
+}
+
+// ---- INPUTS ----
+.ts-input {
+  @include input-base();
+}
+
+// Validation states
+.field-group {
+  &.valid .ts-input {
+    border-color: $color-success;
+    background: $color-success-bg;
+  }
+  &.invalid .ts-input {
+    border-color: $color-danger;
+    background: $color-danger-bg;
+  }
+
+  .form-feedback {
+    min-height: 16px;
+    font-size: $font-size-sm;
+  }
+
+  &.valid .form-feedback {
+    color: $color-success-text;
+  }
+  &.invalid .form-feedback {
+    color: $color-danger-text;
+  }
+}
+
+// ---- BADGES ----
+.badge-success {
+  @include badge($color-success-bg, $color-success-text);
+}
+.badge-warning {
+  @include badge($color-warning-bg, $color-warning-text);
+}
+.badge-danger {
+  @include badge($color-danger-bg, $color-danger-text);
+}
+.badge-info {
+  @include badge($color-info-bg, $color-info-text);
+}
+
+// ---- PROGRESS ----
+.ts-progress {
+  @include progress-track();
+
+  .bar {
+    height: 100%;
+    border-radius: $radius-full;
+    transition: width 0.5s ease;
+
+    &.info {
+      background-color: $color-info;
+    }
+    &.success {
+      background-color: $color-success;
+    }
+    &.warning {
+      background-color: $color-warning;
+    }
+    &.danger {
+      background-color: $color-danger;
+    }
+    &.purple {
+      background-color: $color-purple;
+    }
+  }
+}
+
+// ---- TASKS ----
+.priority-dot {
+  &.high {
+    @include priority-dot($color-danger);
+  }
+  &.medium {
+    @include priority-dot($color-warning);
+  }
+  &.low {
+    @include priority-dot($color-success);
+  }
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  padding: 10px 0;
+  border-bottom: 1px solid $color-border;
+  transition: opacity $transition-fast;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  .task-text {
+    flex: 1;
+    font-size: $font-size-md;
+  }
+
+  &.completed {
+    .task-text {
+      text-decoration: line-through;
+      opacity: 0.5;
+    }
+  }
+
+  @include dark {
+    border-color: $dark-border;
+  }
+}
+
+.completed-count {
+  font-size: $font-size-sm;
+  color: $color-text-muted;
+  font-style: italic;
+  margin-top: $spacing-md;
+}
+
+// ---- STATS ----
+.week-chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  height: 140px;
+  padding-bottom: 5px;
+
+  .day-bar-wrap {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    height: 100%;
+    justify-content: flex-end;
+
+    .day-bar {
+      width: 100%;
+      background-color: $color-primary;
+      border-radius: 4px 4px 0 0;
+    }
+
+    span {
+      font-size: $font-size-xs;
+      color: $color-text-muted;
+    }
+  }
+}
+
+.hour-block {
+  padding: 12px 8px;
+  border-radius: $radius-md;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-bold;
+  line-height: 1.6;
+  text-align: center;
+
+  &.filled {
+    background-color: #bfdbfe;
+    color: #1e40af;
+  }
+  &.partial {
+    background-color: #fef9c3;
+    color: #92400e;
+  }
+  &.empty {
+    background-color: #f1f5f9;
+    color: $dark-text-muted;
+  }
+
+  @include dark {
+    &.filled {
+      background-color: #1e3a5f;
+      color: #93c5fd;
+    }
+    &.partial {
+      background-color: #422006;
+      color: #fde68a;
+    }
+    &.empty {
+      background-color: $dark-card-bg;
+      color: #475569;
+    }
+  }
+}
+
+// ---- COLOR SWATCHES (Settings) ----
+.color-swatches {
+  display: flex;
+  gap: $spacing-sm;
+
+  .swatch {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid $color-border;
+    transition: transform $transition-fast;
+
+    &:hover {
+      transform: scale(1.2);
+      border-color: $color-primary;
+    }
+  }
+}
+
+// ---- API / QUOTES ----
+.api-preview-box {
+  background: $color-info-bg;
+  border-left: 4px solid $color-primary;
+  border-radius: 0 $radius-md $radius-md 0;
+  padding: 14px;
+
+  .api-preview-label {
+    font-size: $font-size-xs;
+    font-weight: $font-weight-bold;
+    color: $color-info-text;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
+  }
+
+  .api-preview-text {
+    font-size: $font-size-md;
+    color: $color-text-body;
+    line-height: 1.5;
+    margin: 0;
+
+    @include dark {
+      color: $dark-text;
+    }
+  }
+
+  @include dark {
+    background-color: $dark-input-bg;
+  }
+}
+
+.api-results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 14px;
+
+  &.list-style {
+    grid-template-columns: 1fr;
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+.api-card {
+  background: #f8fafc;
+  border: 1px solid $color-border;
+  border-left: 4px solid $color-primary;
+  border-radius: $radius-md;
+  padding: $spacing-md;
+  transition:
+    transform $transition-fast,
+    box-shadow $transition-fast;
+  animation: fadeSlideIn 0.3s ease forwards;
+  opacity: 0;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '"';
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    font-size: 60px;
+    color: rgba($color-primary, 0.1);
+    font-family: $font-heading;
+    line-height: 1;
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: $shadow-md;
+  }
+
+  .api-results-grid.list-style & {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    border-left: none;
+    border-bottom: 1px solid $color-border;
+    border-radius: 0;
+    background: transparent;
+    padding: 14px 0;
+    &::before {
+      display: none;
+    }
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  @include dark {
+    background-color: $dark-input-bg;
+    border-color: $dark-border;
+  }
+}
+
+.quote-text {
+  font-size: $font-size-md;
+  font-style: italic;
+  color: $color-text-body;
+  line-height: 1.6;
+  margin-bottom: 10px;
+  @include dark {
+    color: $dark-text;
+  }
+}
+.quote-author {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-bold;
+  color: $color-info-text;
+}
+.quote-tag {
+  @include badge($color-info-bg, $color-info-text);
+  margin-top: 8px;
+}
+
+.list-number {
+  width: 28px;
+  height: 28px;
+  background: $color-primary;
+  color: $color-white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-bold;
+  flex-shrink: 0;
+}
+
+.endpoint-badge {
+  font-size: $font-size-xs;
+  background: $color-info-bg;
+  color: $color-info-text;
+  padding: 4px 10px;
+  border-radius: $radius-full;
+}
+
+.json-preview {
+  background: $color-dark;
+  color: #7dd3fc;
+  padding: 14px;
+  border-radius: $radius-md;
+  font-size: $font-size-xs;
+  font-family: $font-mono;
+  overflow-y: auto;
+  max-height: 240px;
+  white-space: pre-wrap;
+  word-break: break-word;
+  line-height: 1.6;
+}
+
+// Loader
+.api-loader {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 40px 0;
+  color: $color-text-muted;
+  font-size: $font-size-md;
+
+  &.active {
+    display: flex;
+  }
+
+  .loader-dots {
+    display: flex;
+    gap: 8px;
+
+    span {
+      width: 10px;
+      height: 10px;
+      background: $color-primary;
+      border-radius: 50%;
+      animation: bounce 0.8s infinite alternate;
+
+      &:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+      &:nth-child(3) {
+        animation-delay: 0.4s;
+      }
+    }
+  }
+}
+
+// ---- FORM PREVIEW ----
+.preview-card {
+  border: 2px dashed $color-border;
+  border-radius: $radius-lg;
+  padding: $spacing-md;
+  min-height: 100px;
+  transition: border-color $transition-normal;
+
+  &.has-content {
+    border-color: $color-primary;
+    border-style: solid;
+  }
+
+  @include dark {
+    border-color: $dark-border;
+    &.has-content {
+      border-color: $color-primary;
+    }
+  }
+}
+
+.preview-empty {
+  color: #cbd5e1;
+  font-size: $font-size-sm;
+  font-style: italic;
+  text-align: center;
+  padding: 16px 0;
+}
+.preview-name {
+  font-family: $font-heading;
+  font-size: 15px;
+  font-weight: $font-weight-bold;
+  color: $color-text-heading;
+  margin-bottom: 8px;
+  @include dark {
+    color: #f1f5f9;
+  }
+}
+.preview-desc {
+  font-size: $font-size-sm;
+  color: $color-text-muted;
+  line-height: 1.5;
+  @include dark {
+    color: $dark-text-muted;
+  }
+}
+.preview-assignee {
+  font-size: $font-size-xs;
+  color: $color-text-light;
+  margin-top: 6px;
+}
+
+.preview-badge {
+  font-size: $font-size-xs;
+  padding: 3px 10px;
+  border-radius: $radius-full;
+  font-weight: $font-weight-bold;
+  display: inline-block;
+  margin-right: 4px;
+  margin-bottom: 4px;
+
+  &.high {
+    @include badge($color-danger-bg, $color-danger-text);
+  }
+  &.medium {
+    @include badge(#fef9c3, #92400e);
+  }
+  &.low {
+    @include badge(#dcfce7, #166534);
+  }
+  &.cat {
+    @include badge($color-info-bg, $color-info-text);
+  }
+  &.due {
+    @include badge(#f1f5f9, #475569);
+  }
+}
+
+// Checklist
+.check-item {
+  transition: color $transition-fast;
+  color: $color-text-muted;
+
+  .check-icon {
+    color: #cbd5e1;
+    transition: color $transition-fast;
+  }
+
+  &.done {
+    color: $color-success-text !important;
+    .check-icon {
+      color: $color-success;
+    }
+  }
+
+  @include dark {
+    color: $dark-text-muted !important;
+    &.done {
+      color: $color-success !important;
+    }
+  }
+}
+
+// ---- TOAST ----
+.ts-toast {
+  background: $color-dark;
+  color: $color-white;
+  border: none;
+  border-radius: $radius-xl;
+}
+
+// Tip box
+.tip-box {
+  background: $color-info-bg;
+  border-left: 4px solid $color-primary;
+  padding: 15px;
+  border-radius: 0 $radius-md $radius-md 0;
+
+  p {
+    font-size: $font-size-md;
+    font-style: italic;
+    color: $color-text-body;
+    line-height: 1.6;
+    margin-bottom: 12px;
+    @include dark {
+      color: $dark-text;
+    }
+  }
+
+  @include dark {
+    background-color: $dark-card-bg;
+  }
+}
+
+// ---- ANIMATIONS ----
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  from {
+    transform: translateY(0);
+    opacity: 0.5;
+  }
+  to {
+    transform: translateY(-10px);
+    opacity: 1;
+  }
+}

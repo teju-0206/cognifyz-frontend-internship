@@ -1,0 +1,49 @@
+// ================================
+// _base.scss
+// Reset & Base Styles
+// ================================
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-body;
+  background-color: $color-body-bg;
+  color: $color-text-body;
+  font-size: $font-size-md;
+  transition:
+    background-color $transition-normal,
+    color $transition-normal;
+
+  &.dark-mode {
+    background-color: $dark-body-bg;
+    color: $dark-text;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  border-radius: $radius-lg;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+// Section visibility
+.section {
+  display: none;
+}
+.section.active {
+  display: block;
+}
