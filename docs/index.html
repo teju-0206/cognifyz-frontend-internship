@@ -1,1 +1,1291 @@
-temp
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TaskSphere Dashboard — Task 8: Sass</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap 5 CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <!-- ===================== -->
+      <!-- SIDEBAR               -->
+      <!-- ===================== -->
+      <aside class="sidebar">
+        <div class="sidebar-brand">
+          <span class="brand-text">TaskSphere</span>
+        </div>
+
+        <nav class="sidebar-nav">
+          <a href="#" class="nav-link active" data-section="dashboard">
+            <i class="bi bi-grid-1x2-fill"></i> Dashboard
+          </a>
+          <a href="#" class="nav-link" data-section="tasks">
+            <i class="bi bi-check2-square"></i> Tasks
+          </a>
+          <a href="#" class="nav-link" data-section="goals">
+            <i class="bi bi-trophy-fill"></i> Goals
+          </a>
+          <a href="#" class="nav-link" data-section="api">
+            <i class="bi bi-chat-quote-fill"></i> Motivation
+          </a>
+          <a href="#" class="nav-link" data-section="addtask">
+            <i class="bi bi-plus-circle-fill"></i> Add Task
+          </a>
+          <a href="#" class="nav-link" data-section="stats">
+            <i class="bi bi-bar-chart-fill"></i> Stats
+          </a>
+          <a href="#" class="nav-link" data-section="settings">
+            <i class="bi bi-gear-fill"></i> Settings
+          </a>
+        </nav>
+      </aside>
+
+      <!-- ===================== -->
+      <!-- MAIN CONTENT          -->
+      <!-- ===================== -->
+      <main class="main-content">
+        <!-- DASHBOARD SECTION -->
+        <section id="dashboard" class="section active">
+          <div
+            class="page-header d-flex justify-content-between align-items-center mb-4"
+          >
+            <div>
+              <h1 class="page-title">Welcome to TaskSphere</h1>
+              <p class="page-subtitle">
+                Your personal productivity tracking center.
+              </p>
+            </div>
+            <div class="d-flex gap-2">
+              <button class="btn btn-ts" id="darkModeToggle">
+                <i class="bi bi-moon-fill"></i> Dark Mode
+              </button>
+              <button class="btn btn-ts" id="colorChangeBtn">
+                <i class="bi bi-palette-fill"></i> Background
+              </button>
+            </div>
+          </div>
+
+          <!-- Stat Cards -->
+          <div class="row g-3 mb-4">
+            <div class="col-12 col-sm-6 col-xl-3">
+              <div class="card ts-stat-card h-100">
+                <div class="card-body">
+                  <p class="stat-label">Tasks Completed</p>
+                  <h2 class="stat-number">12</h2>
+                  <span class="badge bg-success-subtle text-success"
+                    >+3 today</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-xl-3">
+              <div class="card ts-stat-card h-100">
+                <div class="card-body">
+                  <p class="stat-label">Pending Tasks</p>
+                  <h2 class="stat-number">5</h2>
+                  <span class="badge bg-warning-subtle text-warning"
+                    >In progress</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-xl-3">
+              <div class="card ts-stat-card h-100">
+                <div class="card-body">
+                  <p class="stat-label">Focus Hours</p>
+                  <h2 class="stat-number">6.5</h2>
+                  <span class="badge bg-info-subtle text-info">This week</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-xl-3">
+              <div class="card ts-stat-card ts-accent-card h-100">
+                <div class="card-body">
+                  <p class="stat-label">Quotes Loaded</p>
+                  <h2 class="stat-number" id="apiCountDash">—</h2>
+                  <span class="badge bg-primary-subtle text-primary"
+                    >Live API</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Focus Row -->
+          <div class="row g-3">
+            <div class="col-12 col-lg-7">
+              <div class="card ts-card h-100">
+                <div class="card-body">
+                  <h5 class="card-title">Today's Focus</h5>
+                  <p class="card-text">
+                    Complete Cognifyz internship tasks and strengthen frontend
+                    development skills.
+                  </p>
+                  <div class="api-preview-box mt-3">
+                    <p class="api-preview-label">
+                      <i class="bi bi-chat-quote"></i> Quote of the Moment
+                    </p>
+                    <p id="dashApiPreview" class="api-preview-text">
+                      Loading motivational quote...
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-lg-5">
+              <div class="card ts-card h-100">
+                <div class="card-body">
+                  <h5 class="card-title">Preview</h5>
+                  <img
+                    src="images/productivity.jpg"
+                    alt="Productivity preview"
+                    class="img-fluid rounded"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- TASKS SECTION -->
+        <section id="tasks" class="section">
+          <div
+            class="page-header d-flex justify-content-between align-items-center mb-4"
+          >
+            <div>
+              <h1 class="page-title">Tasks</h1>
+              <p class="page-subtitle">Manage and track your daily tasks.</p>
+            </div>
+            <button class="btn btn-ts dark-btn">
+              <i class="bi bi-moon-fill"></i> Dark Mode
+            </button>
+          </div>
+
+          <!-- Quick Add -->
+          <div class="card ts-card mb-4">
+            <div class="card-body">
+              <h5 class="card-title mb-3">➕ Quick Add Task</h5>
+              <div class="row g-2">
+                <div class="col-12 col-md">
+                  <input
+                    type="text"
+                    id="taskInput"
+                    class="form-control ts-input"
+                    placeholder="Enter a new task..."
+                  />
+                </div>
+                <div class="col-12 col-md-auto">
+                  <select id="taskPriority" class="form-select ts-input">
+                    <option value="high">🔴 High</option>
+                    <option value="medium" selected>🟡 Medium</option>
+                    <option value="low">🟢 Low</option>
+                  </select>
+                </div>
+                <div class="col-12 col-md-auto">
+                  <button id="addTaskBtn" class="btn btn-ts w-100">
+                    Add Task
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Task Lists -->
+          <div class="row g-3">
+            <div class="col-12 col-lg-6">
+              <div class="card ts-card h-100">
+                <div class="card-body">
+                  <h5 class="card-title">📋 Pending Tasks</h5>
+                  <ul
+                    class="list-group list-group-flush task-list mt-2"
+                    id="pendingList"
+                  >
+                    <li
+                      class="list-group-item task-item d-flex align-items-center gap-2 px-0"
+                    >
+                      <span class="priority-dot high"></span>
+                      <span class="task-text flex-grow-1"
+                        >Finish responsive dashboard layout</span
+                      >
+                      <button
+                        class="btn btn-sm btn-complete"
+                        onclick="completeTask(this)"
+                      >
+                        <i class="bi bi-check-lg"></i>
+                      </button>
+                    </li>
+                    <li
+                      class="list-group-item task-item d-flex align-items-center gap-2 px-0"
+                    >
+                      <span class="priority-dot medium"></span>
+                      <span class="task-text flex-grow-1"
+                        >Implement JavaScript interactions</span
+                      >
+                      <button
+                        class="btn btn-sm btn-complete"
+                        onclick="completeTask(this)"
+                      >
+                        <i class="bi bi-check-lg"></i>
+                      </button>
+                    </li>
+                    <li
+                      class="list-group-item task-item d-flex align-items-center gap-2 px-0"
+                    >
+                      <span class="priority-dot low"></span>
+                      <span class="task-text flex-grow-1"
+                        >Connect API for dynamic content</span
+                      >
+                      <button
+                        class="btn btn-sm btn-complete"
+                        onclick="completeTask(this)"
+                      >
+                        <i class="bi bi-check-lg"></i>
+                      </button>
+                    </li>
+                    <li
+                      class="list-group-item task-item d-flex align-items-center gap-2 px-0"
+                    >
+                      <span class="priority-dot high"></span>
+                      <span class="task-text flex-grow-1"
+                        >Write project documentation</span
+                      >
+                      <button
+                        class="btn btn-sm btn-complete"
+                        onclick="completeTask(this)"
+                      >
+                        <i class="bi bi-check-lg"></i>
+                      </button>
+                    </li>
+                    <li
+                      class="list-group-item task-item d-flex align-items-center gap-2 px-0"
+                    >
+                      <span class="priority-dot medium"></span>
+                      <span class="task-text flex-grow-1"
+                        >Test on mobile devices</span
+                      >
+                      <button
+                        class="btn btn-sm btn-complete"
+                        onclick="completeTask(this)"
+                      >
+                        <i class="bi bi-check-lg"></i>
+                      </button>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-lg-6">
+              <div class="card ts-card h-100">
+                <div class="card-body">
+                  <h5 class="card-title">✅ Completed Tasks</h5>
+                  <ul
+                    class="list-group list-group-flush task-list mt-2"
+                    id="completedList"
+                  >
+                    <li
+                      class="list-group-item task-item completed d-flex align-items-center gap-2 px-0"
+                    >
+                      <span class="priority-dot low"></span>
+                      <span class="task-text flex-grow-1"
+                        >Set up project folder structure</span
+                      >
+                    </li>
+                    <li
+                      class="list-group-item task-item completed d-flex align-items-center gap-2 px-0"
+                    >
+                      <span class="priority-dot medium"></span>
+                      <span class="task-text flex-grow-1"
+                        >Create basic HTML page</span
+                      >
+                    </li>
+                    <li
+                      class="list-group-item task-item completed d-flex align-items-center gap-2 px-0"
+                    >
+                      <span class="priority-dot high"></span>
+                      <span class="task-text flex-grow-1"
+                        >Apply inline CSS styling</span
+                      >
+                    </li>
+                  </ul>
+                  <p class="completed-count mt-3">3 tasks completed today 🎉</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- GOALS SECTION -->
+        <section id="goals" class="section">
+          <div
+            class="page-header d-flex justify-content-between align-items-center mb-4"
+          >
+            <div>
+              <h1 class="page-title">Goals</h1>
+              <p class="page-subtitle">
+                Define and monitor your productivity goals.
+              </p>
+            </div>
+            <button class="btn btn-ts dark-btn">
+              <i class="bi bi-moon-fill"></i> Dark Mode
+            </button>
+          </div>
+
+          <!-- Progress Goals -->
+          <div class="card ts-card mb-4">
+            <div class="card-body">
+              <h5 class="card-title mb-4">📅 Weekly Goals — March 2026</h5>
+              <div class="row g-4">
+                <div class="col-12 col-md-6">
+                  <div class="d-flex justify-content-between mb-1">
+                    <small>🖥️ Complete all 8 Internship Tasks</small>
+                    <small class="fw-bold text-info">50%</small>
+                  </div>
+                  <div class="progress ts-progress">
+                    <div class="progress-bar bg-info" style="width: 50%"></div>
+                  </div>
+                  <small class="text-muted">4 of 8 tasks done</small>
+                </div>
+                <div class="col-12 col-md-6">
+                  <div class="d-flex justify-content-between mb-1">
+                    <small>📚 Study JavaScript Daily</small>
+                    <small class="fw-bold text-success">71%</small>
+                  </div>
+                  <div class="progress ts-progress">
+                    <div
+                      class="progress-bar bg-success"
+                      style="width: 71%"
+                    ></div>
+                  </div>
+                  <small class="text-muted">5 of 7 days done</small>
+                </div>
+                <div class="col-12 col-md-6">
+                  <div class="d-flex justify-content-between mb-1">
+                    <small>🎨 Build 3 UI Projects</small>
+                    <small class="fw-bold text-warning">33%</small>
+                  </div>
+                  <div class="progress ts-progress">
+                    <div
+                      class="progress-bar bg-warning"
+                      style="width: 33%"
+                    ></div>
+                  </div>
+                  <small class="text-muted">1 of 3 projects done</small>
+                </div>
+                <div class="col-12 col-md-6">
+                  <div class="d-flex justify-content-between mb-1">
+                    <small>⏱️ Log 20 Focus Hours</small>
+                    <small class="fw-bold text-purple">83%</small>
+                  </div>
+                  <div class="progress ts-progress">
+                    <div
+                      class="progress-bar bg-purple"
+                      style="width: 83%"
+                    ></div>
+                  </div>
+                  <small class="text-muted">16.5 of 20 hours logged</small>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row g-3">
+            <div class="col-12 col-lg-6">
+              <div class="card ts-card h-100">
+                <div class="card-body">
+                  <h5 class="card-title">🏆 Monthly Milestones</h5>
+                  <ul class="list-group list-group-flush mt-2">
+                    <li
+                      class="list-group-item px-0 d-flex align-items-center gap-2"
+                    >
+                      <span class="badge bg-success">✅</span> Submit internship
+                      offer acceptance
+                    </li>
+                    <li
+                      class="list-group-item px-0 d-flex align-items-center gap-2"
+                    >
+                      <span class="badge bg-success">✅</span> Complete Level 1
+                      tasks
+                    </li>
+                    <li
+                      class="list-group-item px-0 d-flex align-items-center gap-2"
+                    >
+                      <span class="badge bg-success">✅</span> Complete Level 2
+                      tasks
+                    </li>
+                    <li
+                      class="list-group-item px-0 d-flex align-items-center gap-2"
+                    >
+                      <span class="badge bg-warning text-dark">⏳</span>
+                      Complete Level 3 tasks
+                    </li>
+                    <li
+                      class="list-group-item px-0 d-flex align-items-center gap-2"
+                    >
+                      <span class="badge bg-warning text-dark">⏳</span>
+                      Complete Level 4 tasks
+                    </li>
+                    <li
+                      class="list-group-item px-0 d-flex align-items-center gap-2"
+                    >
+                      <span class="badge bg-warning text-dark">⏳</span> Post
+                      LinkedIn showcase video
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-lg-6">
+              <div class="card ts-card h-100">
+                <div class="card-body">
+                  <h5 class="card-title">💡 Focus Tip of the Day</h5>
+                  <div class="tip-box mt-3">
+                    <p id="tipText">
+                      "Break your goals into small daily actions. Consistency
+                      beats intensity every time."
+                    </p>
+                    <button id="newTipBtn" class="btn btn-ts btn-sm mt-2">
+                      <i class="bi bi-arrow-clockwise"></i> New Tip
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- MOTIVATION / API SECTION -->
+        <section id="api" class="section">
+          <div
+            class="page-header d-flex justify-content-between align-items-center mb-4"
+          >
+            <div>
+              <h1 class="page-title">💬 Motivation Feed</h1>
+              <p class="page-subtitle">
+                Live quotes fetched from the ZenQuotes API.
+              </p>
+            </div>
+            <div class="d-flex gap-2">
+              <button class="btn btn-ts" id="refreshApiBtn">
+                <i class="bi bi-arrow-clockwise"></i> New Quotes
+              </button>
+              <button class="btn btn-ts dark-btn">
+                <i class="bi bi-moon-fill"></i> Dark Mode
+              </button>
+            </div>
+          </div>
+
+          <!-- Controls -->
+          <div class="card ts-card mb-4">
+            <div class="card-body">
+              <div class="row g-2 align-items-end">
+                <div class="col-12 col-md-auto">
+                  <label class="form-label ts-control-label">Category</label>
+                  <select id="apiCategory" class="form-select ts-input">
+                    <option value="random">🎲 Random Mix</option>
+                    <option value="productivity">⚡ Productivity</option>
+                    <option value="focus">🎯 Focus</option>
+                    <option value="success">🏆 Success</option>
+                  </select>
+                </div>
+                <div class="col-12 col-md-auto">
+                  <label class="form-label ts-control-label"
+                    >Display Style</label
+                  >
+                  <select id="apiDisplayStyle" class="form-select ts-input">
+                    <option value="cards" selected>🃏 Cards</option>
+                    <option value="list">📋 List</option>
+                  </select>
+                </div>
+                <div class="col-12 col-md-auto">
+                  <button id="fetchApiBtn" class="btn btn-ts-dark w-100">
+                    <i class="bi bi-lightning-fill"></i> Fetch Quotes
+                  </button>
+                </div>
+              </div>
+              <div
+                class="api-status-bar mt-3 pt-3 border-top d-flex justify-content-between align-items-center flex-wrap gap-2"
+              >
+                <small id="apiStatusText" class="text-muted"
+                  >Ready to fetch quotes.</small
+                >
+                <code id="apiEndpointDisplay" class="endpoint-badge"
+                  >https://zenquotes.io/api/quotes</code
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Spotlight -->
+          <div
+            class="card ts-spotlight-card mb-4"
+            id="quoteSpotlight"
+            style="display: none"
+          >
+            <div class="card-body">
+              <p class="spotlight-label">
+                <i class="bi bi-stars"></i> QUOTE OF THE MOMENT
+              </p>
+              <p class="spotlight-quote" id="spotlightText"></p>
+              <p class="spotlight-author" id="spotlightAuthor"></p>
+            </div>
+          </div>
+
+          <!-- Results -->
+          <div class="card ts-card">
+            <div class="card-body">
+              <div
+                class="d-flex justify-content-between align-items-center mb-3"
+              >
+                <h5 class="card-title mb-0" id="apiResultsTitle">
+                  💬 Quotes Feed
+                </h5>
+                <span
+                  class="badge bg-info-subtle text-info"
+                  id="apiResultCount"
+                ></span>
+              </div>
+              <div id="apiLoader" class="api-loader d-none">
+                <div class="loader-dots">
+                  <span></span><span></span><span></span>
+                </div>
+                <p>Fetching quotes...</p>
+              </div>
+              <div
+                id="apiError"
+                class="alert alert-warning d-none"
+                role="alert"
+              >
+                <i class="bi bi-exclamation-triangle"></i> Could not reach the
+                API. Showing curated quotes instead.
+              </div>
+              <div id="apiResults" class="api-results-grid"></div>
+            </div>
+          </div>
+
+          <!-- Info Row -->
+          <div class="row g-3 mt-0">
+            <div class="col-12 col-lg-6">
+              <div class="card ts-card">
+                <div class="card-body">
+                  <h5 class="card-title">ℹ️ About ZenQuotes API</h5>
+                  <p class="card-text small text-muted">
+                    ZenQuotes is a free public API returning real motivational
+                    quotes. No API key required — just <code>fetch()</code> and
+                    go.
+                  </p>
+                  <ul class="list-group list-group-flush mt-2">
+                    <li class="list-group-item px-0 small">
+                      <code>/api/quotes</code> — batch of 50 quotes
+                    </li>
+                    <li class="list-group-item px-0 small">
+                      <code>/api/random</code> — single random quote
+                    </li>
+                    <li class="list-group-item px-0 small">
+                      <code>/api/today</code> — quote of the day
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-lg-6">
+              <div class="card ts-card">
+                <div class="card-body">
+                  <h5 class="card-title">📡 Raw JSON Preview</h5>
+                  <pre id="rawJsonPreview" class="json-preview mt-2">
+Click "Fetch Quotes" to see the raw JSON here.</pre
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ADD TASK FORM SECTION -->
+        <section id="addtask" class="section">
+          <div
+            class="page-header d-flex justify-content-between align-items-center mb-4"
+          >
+            <div>
+              <h1 class="page-title">📝 Add New Task</h1>
+              <p class="page-subtitle">
+                Fill in the details below to create a new task.
+              </p>
+            </div>
+            <button class="btn btn-ts dark-btn">
+              <i class="bi bi-moon-fill"></i> Dark Mode
+            </button>
+          </div>
+
+          <div class="row g-4">
+            <!-- Form -->
+            <div class="col-12 col-xl-8">
+              <div class="card ts-card">
+                <div class="card-body">
+                  <h5 class="card-title">Task Details</h5>
+                  <p class="card-text small text-muted mb-4">
+                    Fields marked <span class="text-danger fw-bold">*</span> are
+                    required.
+                  </p>
+
+                  <form id="addTaskForm" novalidate>
+                    <div class="mb-3" id="group-taskName">
+                      <label class="form-label fw-semibold" for="taskName"
+                        >Task Name <span class="text-danger">*</span></label
+                      >
+                      <input
+                        type="text"
+                        id="taskName"
+                        class="form-control ts-input"
+                        placeholder="e.g. Complete API integration"
+                        maxlength="80"
+                      />
+                      <div class="d-flex justify-content-between">
+                        <div
+                          class="form-feedback small mt-1"
+                          id="feedback-taskName"
+                        ></div>
+                        <small class="text-muted mt-1"
+                          ><span id="charCount">0</span>/80</small
+                        >
+                      </div>
+                    </div>
+
+                    <div class="mb-3" id="group-taskDesc">
+                      <label class="form-label fw-semibold" for="taskDesc"
+                        >Description <span class="text-danger">*</span></label
+                      >
+                      <textarea
+                        id="taskDesc"
+                        class="form-control ts-input"
+                        placeholder="Describe what this task involves..."
+                        rows="3"
+                        maxlength="300"
+                      ></textarea>
+                      <div class="d-flex justify-content-between">
+                        <div
+                          class="form-feedback small mt-1"
+                          id="feedback-taskDesc"
+                        ></div>
+                        <small class="text-muted mt-1"
+                          ><span id="descCount">0</span>/300</small
+                        >
+                      </div>
+                    </div>
+
+                    <div class="row g-3 mb-3">
+                      <div class="col-12 col-md-6" id="group-taskPri">
+                        <label class="form-label fw-semibold" for="taskPri"
+                          >Priority <span class="text-danger">*</span></label
+                        >
+                        <select id="taskPri" class="form-select ts-input">
+                          <option value="">— Select priority —</option>
+                          <option value="high">🔴 High</option>
+                          <option value="medium">🟡 Medium</option>
+                          <option value="low">🟢 Low</option>
+                        </select>
+                        <div
+                          class="form-feedback small mt-1"
+                          id="feedback-taskPri"
+                        ></div>
+                      </div>
+                      <div class="col-12 col-md-6">
+                        <label class="form-label fw-semibold" for="taskCat"
+                          >Category</label
+                        >
+                        <select id="taskCat" class="form-select ts-input">
+                          <option value="general">📁 General</option>
+                          <option value="internship">💼 Internship</option>
+                          <option value="learning">📚 Learning</option>
+                          <option value="personal">🙋 Personal</option>
+                          <option value="design">🎨 Design</option>
+                          <option value="coding">💻 Coding</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="row g-3 mb-3">
+                      <div class="col-12 col-md-6" id="group-taskDue">
+                        <label class="form-label fw-semibold" for="taskDue"
+                          >Due Date <span class="text-danger">*</span></label
+                        >
+                        <input
+                          type="date"
+                          id="taskDue"
+                          class="form-control ts-input"
+                        />
+                        <div
+                          class="form-feedback small mt-1"
+                          id="feedback-taskDue"
+                        ></div>
+                      </div>
+                      <div class="col-12 col-md-6">
+                        <label class="form-label fw-semibold" for="taskTime"
+                          >Estimated Time</label
+                        >
+                        <select id="taskTime" class="form-select ts-input">
+                          <option value="">— Select —</option>
+                          <option value="15">15 minutes</option>
+                          <option value="30">30 minutes</option>
+                          <option value="60">1 hour</option>
+                          <option value="120">2 hours</option>
+                          <option value="180">3+ hours</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="mb-3" id="group-taskAssign">
+                      <label class="form-label fw-semibold" for="taskAssign"
+                        >Assigned To <span class="text-danger">*</span></label
+                      >
+                      <input
+                        type="text"
+                        id="taskAssign"
+                        class="form-control ts-input"
+                        placeholder="e.g. Your name"
+                      />
+                      <div
+                        class="form-feedback small mt-1"
+                        id="feedback-taskAssign"
+                      ></div>
+                    </div>
+
+                    <div class="mb-3" id="group-taskEmail">
+                      <label class="form-label fw-semibold" for="taskEmail"
+                        >Notification Email
+                        <span class="text-danger">*</span></label
+                      >
+                      <input
+                        type="email"
+                        id="taskEmail"
+                        class="form-control ts-input"
+                        placeholder="e.g. you@email.com"
+                      />
+                      <div
+                        class="form-feedback small mt-1"
+                        id="feedback-taskEmail"
+                      ></div>
+                    </div>
+
+                    <div class="mb-3">
+                      <label class="form-label fw-semibold" for="taskNotes"
+                        >Additional Notes
+                        <span class="badge bg-secondary-subtle text-secondary"
+                          >optional</span
+                        ></label
+                      >
+                      <textarea
+                        id="taskNotes"
+                        class="form-control ts-input"
+                        placeholder="Any extra notes..."
+                        rows="2"
+                      ></textarea>
+                    </div>
+
+                    <div
+                      class="d-flex align-items-center gap-3 mb-4 py-3 border-top border-bottom"
+                    >
+                      <span class="fw-semibold small">Set Reminder</span>
+                      <div class="form-check form-switch mb-0">
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          id="taskReminder"
+                        />
+                      </div>
+                      <span class="small text-muted" id="reminderHint"
+                        >Off</span
+                      >
+                    </div>
+
+                    <div class="d-flex gap-2 justify-content-end">
+                      <button
+                        type="button"
+                        id="resetFormBtn"
+                        class="btn btn-secondary-ts"
+                      >
+                        <i class="bi bi-trash3"></i> Clear Form
+                      </button>
+                      <button
+                        type="submit"
+                        id="submitFormBtn"
+                        class="btn btn-ts-dark"
+                      >
+                        <i class="bi bi-plus-circle"></i> Add Task
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+            <!-- Side Panel -->
+            <div class="col-12 col-xl-4">
+              <!-- Live Preview -->
+              <div class="card ts-card mb-3">
+                <div class="card-body">
+                  <h5 class="card-title">👁️ Live Preview</h5>
+                  <p class="small text-muted mb-3">
+                    Updates as you fill in the form.
+                  </p>
+                  <div class="preview-card" id="livePreview">
+                    <div class="preview-empty">
+                      Start filling the form to see a preview...
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Checklist -->
+              <div class="card ts-card mb-3">
+                <div class="card-body">
+                  <h5 class="card-title">✅ Form Checklist</h5>
+                  <ul class="list-group list-group-flush mt-2">
+                    <li
+                      class="list-group-item px-0 check-item small"
+                      id="check-taskName"
+                    >
+                      <span class="check-icon me-2">○</span>Task name entered
+                    </li>
+                    <li
+                      class="list-group-item px-0 check-item small"
+                      id="check-taskDesc"
+                    >
+                      <span class="check-icon me-2">○</span>Description added
+                    </li>
+                    <li
+                      class="list-group-item px-0 check-item small"
+                      id="check-taskPri"
+                    >
+                      <span class="check-icon me-2">○</span>Priority selected
+                    </li>
+                    <li
+                      class="list-group-item px-0 check-item small"
+                      id="check-taskDue"
+                    >
+                      <span class="check-icon me-2">○</span>Due date set
+                    </li>
+                    <li
+                      class="list-group-item px-0 check-item small"
+                      id="check-taskAssign"
+                    >
+                      <span class="check-icon me-2">○</span>Assigned to someone
+                    </li>
+                    <li
+                      class="list-group-item px-0 check-item small"
+                      id="check-taskEmail"
+                    >
+                      <span class="check-icon me-2">○</span>Valid email entered
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Tips -->
+              <div class="card ts-tips-card">
+                <div class="card-body">
+                  <h5 class="card-title">💡 Tips</h5>
+                  <ul class="tips-list mt-2">
+                    <li>Keep task names short and action-oriented.</li>
+                    <li>Set realistic due dates to avoid overload.</li>
+                    <li>High priority tasks should be done first.</li>
+                    <li>Add notes for context you might forget later.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bootstrap Toast -->
+          <div
+            class="toast-container position-fixed bottom-0 end-0 p-3"
+            style="z-index: 1100"
+          >
+            <div
+              id="successToast"
+              class="toast ts-toast align-items-center"
+              role="alert"
+            >
+              <div class="d-flex">
+                <div class="toast-body">
+                  🎉 <strong>Task Added!</strong><br />
+                  <small id="toastTaskName" class="text-muted"></small>
+                </div>
+                <button
+                  type="button"
+                  class="btn-close btn-close-white me-2 m-auto"
+                  data-bs-dismiss="toast"
+                ></button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- STATS SECTION -->
+        <section id="stats" class="section">
+          <div
+            class="page-header d-flex justify-content-between align-items-center mb-4"
+          >
+            <div>
+              <h1 class="page-title">Statistics</h1>
+              <p class="page-subtitle">View your productivity insights.</p>
+            </div>
+            <button class="btn btn-ts dark-btn">
+              <i class="bi bi-moon-fill"></i> Dark Mode
+            </button>
+          </div>
+
+          <div class="row g-3 mb-4">
+            <div class="col-4">
+              <div class="card ts-stat-card text-center">
+                <div class="card-body">
+                  <p class="stat-label">Total Tasks</p>
+                  <h2 class="stat-number">17</h2>
+                </div>
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="card ts-stat-card text-center">
+                <div class="card-body">
+                  <p class="stat-label">Completed</p>
+                  <h2 class="stat-number">12</h2>
+                </div>
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="card ts-stat-card text-center">
+                <div class="card-body">
+                  <p class="stat-label">Rate</p>
+                  <h2 class="stat-number">70%</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row g-3 mb-3">
+            <div class="col-12 col-lg-6">
+              <div class="card ts-card h-100">
+                <div class="card-body">
+                  <h5 class="card-title">📆 Weekly Activity</h5>
+                  <div class="week-chart mt-3">
+                    <div class="day-bar-wrap">
+                      <div class="day-bar" style="height: 40%"></div>
+                      <span>Mon</span>
+                    </div>
+                    <div class="day-bar-wrap">
+                      <div class="day-bar" style="height: 70%"></div>
+                      <span>Tue</span>
+                    </div>
+                    <div class="day-bar-wrap">
+                      <div class="day-bar" style="height: 55%"></div>
+                      <span>Wed</span>
+                    </div>
+                    <div class="day-bar-wrap">
+                      <div class="day-bar" style="height: 90%"></div>
+                      <span>Thu</span>
+                    </div>
+                    <div class="day-bar-wrap">
+                      <div class="day-bar" style="height: 60%"></div>
+                      <span>Fri</span>
+                    </div>
+                    <div class="day-bar-wrap">
+                      <div class="day-bar" style="height: 30%"></div>
+                      <span>Sat</span>
+                    </div>
+                    <div class="day-bar-wrap">
+                      <div class="day-bar" style="height: 20%"></div>
+                      <span>Sun</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-lg-6">
+              <div class="card ts-card h-100">
+                <div class="card-body">
+                  <h5 class="card-title">📊 Task Breakdown</h5>
+                  <div class="mt-3">
+                    <div class="d-flex justify-content-between small mb-1">
+                      <span>✅ Completed</span><span>12</span>
+                    </div>
+                    <div class="progress ts-progress mb-3">
+                      <div
+                        class="progress-bar bg-success"
+                        style="width: 70%"
+                      ></div>
+                    </div>
+                    <div class="d-flex justify-content-between small mb-1">
+                      <span>⏳ Pending</span><span>5</span>
+                    </div>
+                    <div class="progress ts-progress mb-3">
+                      <div
+                        class="progress-bar bg-warning"
+                        style="width: 29%"
+                      ></div>
+                    </div>
+                    <div class="d-flex justify-content-between small mb-1">
+                      <span>🔴 High Priority</span><span>6</span>
+                    </div>
+                    <div class="progress ts-progress mb-3">
+                      <div
+                        class="progress-bar bg-danger"
+                        style="width: 35%"
+                      ></div>
+                    </div>
+                    <div class="d-flex justify-content-between small mb-1">
+                      <span>🟡 Medium Priority</span><span>8</span>
+                    </div>
+                    <div class="progress ts-progress mb-3">
+                      <div
+                        class="progress-bar bg-warning"
+                        style="width: 47%"
+                      ></div>
+                    </div>
+                    <div class="d-flex justify-content-between small mb-1">
+                      <span>🟢 Low Priority</span><span>3</span>
+                    </div>
+                    <div class="progress ts-progress">
+                      <div
+                        class="progress-bar bg-success"
+                        style="width: 18%"
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card ts-card">
+            <div class="card-body">
+              <h5 class="card-title mb-3">⏱️ Focus Hours This Week</h5>
+              <div class="row g-2 text-center">
+                <div class="col">
+                  <div class="hour-block filled">Mon<br />1.5h</div>
+                </div>
+                <div class="col">
+                  <div class="hour-block filled">Tue<br />2h</div>
+                </div>
+                <div class="col">
+                  <div class="hour-block filled">Wed<br />1h</div>
+                </div>
+                <div class="col">
+                  <div class="hour-block filled">Thu<br />2h</div>
+                </div>
+                <div class="col">
+                  <div class="hour-block partial">Fri<br />0.5h</div>
+                </div>
+                <div class="col">
+                  <div class="hour-block empty">Sat<br />—</div>
+                </div>
+                <div class="col">
+                  <div class="hour-block empty">Sun<br />—</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SETTINGS SECTION -->
+        <section id="settings" class="section">
+          <div
+            class="page-header d-flex justify-content-between align-items-center mb-4"
+          >
+            <div>
+              <h1 class="page-title">Settings</h1>
+              <p class="page-subtitle">Customize your TaskSphere experience.</p>
+            </div>
+            <button class="btn btn-ts dark-btn">
+              <i class="bi bi-moon-fill"></i> Dark Mode
+            </button>
+          </div>
+
+          <div class="row g-3 mb-3">
+            <div class="col-12 col-lg-6">
+              <div class="card ts-card h-100">
+                <div class="card-body">
+                  <h5 class="card-title mb-4">🎨 Appearance</h5>
+                  <div
+                    class="d-flex justify-content-between align-items-center mb-3"
+                  >
+                    <label class="fw-semibold small">Dark Mode</label>
+                    <div class="form-check form-switch mb-0">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="darkToggleSetting"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="d-flex justify-content-between align-items-center mb-3"
+                  >
+                    <label class="fw-semibold small">Background Color</label>
+                    <div class="color-swatches">
+                      <span
+                        class="swatch"
+                        style="background: #e3e8ed"
+                        onclick="setBg('#e3e8ed')"
+                      ></span>
+                      <span
+                        class="swatch"
+                        style="background: #fef3c7"
+                        onclick="setBg('#fef3c7')"
+                      ></span>
+                      <span
+                        class="swatch"
+                        style="background: #d1fae5"
+                        onclick="setBg('#d1fae5')"
+                      ></span>
+                      <span
+                        class="swatch"
+                        style="background: #fee2e2"
+                        onclick="setBg('#fee2e2')"
+                      ></span>
+                      <span
+                        class="swatch"
+                        style="background: #e0f2fe"
+                        onclick="setBg('#e0f2fe')"
+                      ></span>
+                      <span
+                        class="swatch"
+                        style="background: #ede9fe"
+                        onclick="setBg('#ede9fe')"
+                      ></span>
+                    </div>
+                  </div>
+                  <div
+                    class="d-flex justify-content-between align-items-center"
+                  >
+                    <label class="fw-semibold small">Font Size</label>
+                    <select
+                      class="form-select form-select-sm w-auto ts-input"
+                      onchange="changeFontSize(this.value)"
+                    >
+                      <option value="14px">Small</option>
+                      <option value="16px" selected>Medium</option>
+                      <option value="18px">Large</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-lg-6">
+              <div class="card ts-card h-100">
+                <div class="card-body">
+                  <h5 class="card-title mb-4">👤 Profile</h5>
+                  <div class="mb-3">
+                    <label class="form-label small fw-semibold"
+                      >Display Name</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control ts-input"
+                      value="Intern User"
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label small fw-semibold">Email</label>
+                    <input
+                      type="email"
+                      class="form-control ts-input"
+                      placeholder="your@email.com"
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label small fw-semibold">Role</label>
+                    <input
+                      type="text"
+                      class="form-control ts-input"
+                      value="Frontend Intern @ Cognifyz"
+                    />
+                  </div>
+                  <button class="btn btn-ts w-100" id="saveProfileBtn">
+                    <i class="bi bi-floppy-fill"></i> Save Profile
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row g-3">
+            <div class="col-12 col-lg-6">
+              <div class="card ts-card h-100">
+                <div class="card-body">
+                  <h5 class="card-title mb-4">🔔 Notifications</h5>
+                  <div
+                    class="d-flex justify-content-between align-items-center mb-3"
+                  >
+                    <label class="small fw-semibold">Daily Reminders</label>
+                    <div class="form-check form-switch mb-0">
+                      <input class="form-check-input" type="checkbox" checked />
+                    </div>
+                  </div>
+                  <div
+                    class="d-flex justify-content-between align-items-center mb-3"
+                  >
+                    <label class="small fw-semibold">Goal Alerts</label>
+                    <div class="form-check form-switch mb-0">
+                      <input class="form-check-input" type="checkbox" checked />
+                    </div>
+                  </div>
+                  <div
+                    class="d-flex justify-content-between align-items-center"
+                  >
+                    <label class="small fw-semibold">Weekly Summary</label>
+                    <div class="form-check form-switch mb-0">
+                      <input class="form-check-input" type="checkbox" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-lg-6">
+              <div class="card ts-card h-100">
+                <div class="card-body">
+                  <h5 class="card-title mb-4">🛠️ Data & Reset</h5>
+                  <p class="small text-muted mb-3">
+                    Manage your dashboard data and preferences.
+                  </p>
+                  <button class="btn btn-ts w-100 mb-2">
+                    <i class="bi bi-upload"></i> Export Data
+                  </button>
+                  <button
+                    class="btn btn-danger-ts w-100"
+                    onclick="if (confirm('Reset all data?')) location.reload();"
+                  >
+                    <i class="bi bi-arrow-counterclockwise"></i> Reset Dashboard
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
